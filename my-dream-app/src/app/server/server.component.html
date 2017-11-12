@@ -1,3 +1,10 @@
 <input type="text" class="form-control" [(ngModel)]= "servername">
 <button class="btn btn-primary" [disabled]= "!allowNewServer" (click)="OncreateServer()">Add new server</button>
-<p>{{serverCreationStatus}}</p>
+<p *ngIf= "checkIfServerCreated ; else noServer">{{serverCreationStatus}}</p>
+<ng-template #noServer>
+  <p>No server was created</p>
+</ng-template>
+
+<input type="text" class="form-control" [(ngModel)]= "Username">
+<p> {{Username}}</p>
+<button class="btn btn-primary" [disabled]= "Username.length === 0" (click)="resetUserName()">Reset Username </button>

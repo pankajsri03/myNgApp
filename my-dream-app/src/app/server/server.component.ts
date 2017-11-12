@@ -13,7 +13,8 @@ export class ServerComponent implements OnInit {
   serverStatus : String = 'offline';
   serverCreationStatus = "No server was created";
   servername = '';
-  
+  Username = '';
+  checkIfServerCreated = false;
   getServerStatus(){
     return this.serverStatus;
   }
@@ -26,15 +27,19 @@ export class ServerComponent implements OnInit {
 
   ngOnInit() {
   }
-
-
+ 
   OncreateServer(){
+    this.checkIfServerCreated = true;
       this.serverCreationStatus = "Server was created" + " " + this.servername;
   }
 
 
   onUpdateServerName( event : any) {
+    
     this.servername = (<HTMLInputElement>event.target).value;
   }
-
+ 
+  resetUserName(){
+    this.Username = '';
+  }
 }
